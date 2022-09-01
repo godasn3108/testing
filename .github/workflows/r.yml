@@ -34,8 +34,8 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          registry: jdesh600.jfrog.io
-          username: ${{ secrets.JF_USER }}
+          registry: nilesh3108.jfrog.io
+          username: ${{ secrets.JF_USERNAME }}
           password: ${{ secrets.JF_PASSWORD }}
       -
         name: Build and push
@@ -43,4 +43,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: jdesh600.jfrog.io/jdesh600/myimage:latest
+          tags: nilesh3108.jfrog.io/nilesh3108/myimage:latest
