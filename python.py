@@ -5,4 +5,4 @@ with open('input.yaml', 'r')as file:
 
 #Set Output Variable
 print("***************************************************************"+data['R_VERSION'])
-print(f"::set-output name=R_VERSION::{data['R_VERSION']}")
+print(f"::set-output name=RVERSION::{data['R_VERSION']}")
