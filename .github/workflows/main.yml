@@ -32,16 +32,17 @@ jobs:
         name: Install Python Dependancies
         run: pip install pyyaml
       -
-        name: Run Python Script
+        name: Execute Python script
         run: python python.py
       -
         name: Check Variables
         run: echo "Test This ${{ steps.run-python.outputs }}"
       -
-        name: Update R version
+        name: Get the output value
+        id: output_variable
         run: |
-          sed -i -e "${{ steps.run-python.outputs.R_VERSION }}" Dockerfile  
-          sed -i -e "${{ steps.run-python.outputs.R_VERSION }}" pkgr.yml
+          echo "Output: ${{ steps.execute_python.outputs.output_variable}}" Dockerfile  
+          echo "Output: ${{ steps.execute_python.outputs.output_variable}}" pkgr.yml
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
