@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import yaml
 
 with open('input.yaml', 'r')as file:
