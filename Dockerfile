@@ -1,5 +1,5 @@
 FROM redhat/ubi8:8.6-754
-ARG R_VERSION=GIT_R_VERSION
+ARG R_VERSION=R_VERSION
 RUN echo "Installing R-${R_VERSION} Base..." && \
     curl -O https://cdn.rstudio.com/r/centos-8/pkgs/R-${R_VERSION}-1-1.x86_64.rpm && \
     dnf install -y R-${R_VERSION}-1-1.x86_64.rpm && \
