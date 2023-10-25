@@ -35,6 +35,9 @@ jobs:
         name: Run Python Script
         run: python python.py
       -
+        name: Check Variables
+        run: echo ${{ steps.run-python-script.outputs.R_VERSION }}
+      -
         name: Update R version
         run: |
           sed -i -e "${{ steps.run-python-script.outputs.R_VERSION }}" Dockerfile  
