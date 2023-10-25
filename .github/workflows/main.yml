@@ -28,7 +28,7 @@ jobs:
         run: pip install pyyaml
       -
         name: Run Python Script
-        run: python.py
+        run: python python.py
       -
         name: Update R version
         run: |
