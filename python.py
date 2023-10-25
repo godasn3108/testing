@@ -1,8 +1,8 @@
 import yaml
 
 with open('input.yaml', 'r')as file:
-	data = yaml.load(file, Loader=yaml.FullLoader)
+	data = yaml.safe_load(file)
 
 #Set Output Variable
-print("***************************************************************"+data['R_VERSION'])
-print(f"::set-output name=RVERSION::{data['R_VERSION']}")
+output_value = data.get('R_VERSION')
+print(f'::set-output name=output_variable::{output_value}')
