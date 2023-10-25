@@ -36,12 +36,12 @@ jobs:
         run: python python.py
       -
         name: Check Variables
-        run: echo ${{ steps.run-python-script.outputs.R_VERSION }}
+        run: echo ${{ steps.run-python-script.outputs.RVERSION }}
       -
         name: Update R version
         run: |
-          sed -i -e "${{ steps.run-python-script.outputs.R_VERSION }}" Dockerfile  
-          sed -i -e "${{ steps.run-python-script.outputs.R_VERSION }}" pkgr.yml
+          sed -i -e "${{ steps.run-python-script.outputs.RVERSION }}" Dockerfile  
+          sed -i -e "${{ steps.run-python-script.outputs.RVERSION }}" pkgr.yml
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
