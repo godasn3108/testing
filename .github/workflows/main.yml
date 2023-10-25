@@ -33,16 +33,20 @@ jobs:
         run: pip install pyyaml
       -
         name: Execute Python script
-        run: python python.py
+        run: python python.py >> $GITHUB_ENV
+      -
+        name: Update R version
+        run: |
+          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" Dockerfile  
+          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" pkgr.yml
       -
         name: Check Variables
         run: echo "Test This ${{ steps.run-python.outputs }}"
       -
-        name: Get the output value
-        id: output_variable
+        name: Update R version
         run: |
-          echo "Output: ${{ steps.execute_python.outputs.output_variable}}" Dockerfile  
-          echo "Output: ${{ steps.execute_python.outputs.output_variable}}" pkgr.yml
+          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" Dockerfile  
+          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" pkgr.yml
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
