@@ -36,7 +36,7 @@ jobs:
         run: python python.py
       -
         name: Check Variables
-        run: echo ${{ steps.run-python-script.outputs }}
+        run: echo "Test This ${{ steps.run-python-script.outputs }}"
       -
         name: Update R version
         run: |
