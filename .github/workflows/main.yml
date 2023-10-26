@@ -38,7 +38,7 @@ jobs:
           echo ::set-output name=script_output::$(cat output_value)
       -
         name: Check Variables
-        run: echo "Test +++++++++++++++> ${{script_output}}"
+        run: echo "Test +++++++++++++++> ${{steps.execute_python_script.outputs.output_variable}}"
       -
         name: Update R version
         run: |
