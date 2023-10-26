@@ -33,12 +33,13 @@ jobs:
         run: pip install pyyaml
       -
         name: Execute Python script
+        id: python-script
         run: |
           python python.py
           echo ::set-output name=script_output::$output_value
       -
         name: Check Variables
-        run: echo "Test +++++++++++++++> ${{steps.execute_python_script.outputs.script_output}}"
+        run: echo "Test +++++++++++++++> ${{steps.python_script.outputs.output_variable}}"
       -
         name: Update R version
         run: |
