@@ -9,7 +9,7 @@ on:
     branches: 
     - 'main'
     paths: 
-    - 'input.yaml'
+    - 'Setup.env'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,19 +24,9 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
-        name: Install Python Dependancies
-        run: pip install pyyaml
-      -
-        name: Execute Python script
-        run: python python.py
-      -
-        name: Check Variables
-        run: echo "Test This ${{ RVERSION }}"
-      -
-        name: Update R version
+        name: Set environment
         run: |
-          sed -i -e "${{ RVERSION }}" Dockerfile  
-          sed -i -e "${{ RVERSION }}" pkgr.yml
+          cat Setup.env >> $GITHUB_ENV
       -
         name: Update R version
         run: |
