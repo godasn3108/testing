@@ -35,14 +35,6 @@ jobs:
         name: Execute Python script
         run: python python.py
       -
-        name: Check Variables
-        run: echo "Test This ${{ RVERSION }}"
-      -
-        name: Update R version
-        run: |
-          sed -i -e "${{RVERSION }}" Dockerfile  
-          sed -i -e "${{RVERSION }}" pkgr.yml
-      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
