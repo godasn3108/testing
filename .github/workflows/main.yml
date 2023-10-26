@@ -40,8 +40,8 @@ jobs:
       -
         name: Update R version
         run: |
-          sed -i -e "s#GIT_R_VERSION#${{ RVERSION }}#" Dockerfile  
-          sed -i -e "s#GIT_R_VERSION#${{ RVERSION }}#" pkgr.yml
+          sed -i -e "${{ RVERSION }}" Dockerfile  
+          sed -i -e "${{ RVERSION }}" pkgr.yml
       
       -
         name: Update R version
