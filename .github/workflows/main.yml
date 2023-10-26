@@ -9,7 +9,7 @@ on:
     branches: 
     - 'main'
     paths: 
-    - 'input.yaml'
+    - 'Setup.env'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,11 +24,6 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
-        name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      -
         name: Install Python Dependancies
         run: pip install pyyaml
       -
@@ -42,7 +37,6 @@ jobs:
         run: |
           sed -i -e "${{ RVERSION }}" Dockerfile  
           sed -i -e "${{ RVERSION }}" pkgr.yml
-      
       -
         name: Update R version
         run: |
@@ -58,12 +52,13 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: godasn.jfrog.io
+          username: ${{ secrets.JF_USERNAME }}
+          password: ${{ secrets.JF_PASSWORD }}
       -
         name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pkgrtest:latest
+          tags: godasn.jfrog.io/godasn/myimage:latest
