@@ -34,12 +34,10 @@ jobs:
       -
         name: Execute Python script
         id: python-script
-        run: |
-          python python.py
-          echo ::set-output name=script_output::$output_value
+        run: python python.py
       -
         name: Check Variables
-        run: echo "Test +++++++++++++++> ${{steps.python_script.outputs.output_variable}}"
+        run: echo "Test +++++++++++++++> ${{steps.python-script.outputs.R_VERSION}}"
       -
         name: Update R version
         run: |
