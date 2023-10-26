@@ -33,15 +33,16 @@ jobs:
         run: pip install pyyaml
       -
         name: Execute Python script
-        run: python python.py >> $GITHUB_ENV
+        run: python python.py
+      -
+        name: Check Variables
+        run: echo "Test This ${{ RVERSION }}"
       -
         name: Update R version
         run: |
-          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" Dockerfile  
-          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" pkgr.yml
-      -
-        name: Check Variables
-        run: echo "Test This ${{ steps.run-python.outputs }}"
+          sed -i -e "s#GIT_R_VERSION#${{ RVERSION }}#" Dockerfile  
+          sed -i -e "s#GIT_R_VERSION#${{ RVERSION }}#" pkgr.yml
+      
       -
         name: Update R version
         run: |
