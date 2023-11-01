@@ -37,7 +37,7 @@ jobs:
         run: python python.py
       -
         name: Check Variables
-        run: cat setup.env >> $GITHUB_ENV
+        run: echo setup.env >> $GITHUB_ENV
       -
         name: Update R version
         run: |
