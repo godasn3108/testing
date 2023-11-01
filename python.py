@@ -8,4 +8,4 @@ with open('input.yaml', 'r') as file:
 yaml_string = yaml.dump(data)
 
 # Set the environment variable
-print(f'::save-state name=setup.env::{yaml_string}')
+print(f'::save-state name=setup::{yaml_string}')
