@@ -1,4 +1,4 @@
-R_VERSION: 4.2.2
+R_VERSION: 4.2.1
 Baselayername: Centos
 Baselayertag: 8.6-754
 Build_layer_name: ros
