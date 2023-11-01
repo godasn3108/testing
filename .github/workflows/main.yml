@@ -37,12 +37,12 @@ jobs:
         run: python python.py
       -
         name: Check Variables
-        run: echo "Test +++++++++++++++> ${{steps.python-script.outputs.R_VERSION}}"
+        run: echo setup >> $GITHUB_ENV
       -
         name: Update R version
         run: |
-          sed -i -e "s#R_VERSION#${{steps.python-script.outputs.R_VERSION}}#" Dockerfile  
-          sed -i -e "s#R_VERSION#${{steps.python-script.outputs.R_VERSION}}#" pkgr.yml
+          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" Dockerfile  
+          sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" pkgr.yml
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
