@@ -37,7 +37,7 @@ jobs:
         run: python python.py
       -
         name: Check Variables
-        run: echo "${{ steps.python-script.outputs.setup }}" >> $GITHUB_ENV
+        run: echo "${{ steps.python-script.outputs.setup }}" >> abc.txt
         
       -
         name: Update R version
