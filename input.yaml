@@ -1,1 +1,7 @@
 R_VERSION: 4.2.2
+Baselayername: Centos
+Baselayertag: 8.6-754
+Build_layer_name: ros
+Build_layer_tag: 2023_08_21
+build-required: no
+Dockerfile: Default
