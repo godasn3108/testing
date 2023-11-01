@@ -40,6 +40,11 @@ jobs:
         run: echo "${{ steps.python-script.outputs.setup }}" >> abc.txt
         
       -
+        name: Set environment
+        run: |
+          cat abc.txt >> $GITHUB_ENV
+        
+      -
         name: Update R version
         run: |
           sed -i -e "s#GIT_R_VERSION#${{ env.R_VERSION }}#" Dockerfile  
